@@ -12,7 +12,7 @@ void updateDescore() {
     // state = 1: up
 
     // if a is pressed
-    if (controller.get_digital(pros::E_CONTROLLER_DIGITAL_A)) {
+    if (controller.get_digital(pros::E_CONTROLLER_DIGITAL_R2)) {
         if (!descorePressed) {
             // if descore wing is down put it up
             if(descoreState == 0) {
@@ -40,10 +40,10 @@ void runDescore() {
         switch (descoreState) {
             // descore wing down
             case 0:
-                piston.set_value(false);
+                descorePiston.set_value(false);
             // descore wing up
             case 1:
-                piston.set_value(true);
+                descorePiston.set_value(true);
         }
     }
 }

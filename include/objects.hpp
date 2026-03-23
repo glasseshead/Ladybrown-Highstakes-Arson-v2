@@ -6,6 +6,12 @@
 // intake motor
 extern pros::Motor intake;
 
+// storage motor
+extern pros::Motor storage;
+
+// score motor
+extern pros::Motor score;
+
 // drivetrain and chassis
 extern lemlib::Drivetrain drivetrain;
 extern lemlib::Chassis chassis;
@@ -25,4 +31,7 @@ extern lemlib::ControllerSettings lateral_controller;
 extern lemlib::ControllerSettings angular_controller;
 
 // descore piston
-extern pros::ADIAnalogOut piston;
+extern pros::ADIAnalogOut descorePiston;
+
+// mid goal piston
+extern pros::ADIAnalogOut midGoalPiston;

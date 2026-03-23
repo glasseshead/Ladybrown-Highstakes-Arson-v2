@@ -5,6 +5,7 @@
 #include "descore.hpp"
 
 void initTasks() {
-    pros::Task descoreTask(runDescore, "descore wing task");
     pros::Task intakeTask(runIntake, "intake/outtake task");
+    pros::Task intakeTask(runScore, "score task");
+    pros::Task descoreTask(runDescore, "descore wing task");
 }

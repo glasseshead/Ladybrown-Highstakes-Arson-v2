@@ -19,7 +19,7 @@ void on_center_button() {
 
 void initialize() {
 	pros::lcd::initialize();
-	pros::lcd::set_text(1, "this is david's code, please don't change it unless you know what you're doing");
+	pros::lcd::set_text(1, "arson, yaaay!");
 
 	pros::lcd::register_btn1_cb(on_center_button);
 

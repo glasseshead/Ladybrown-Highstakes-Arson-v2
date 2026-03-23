@@ -6,7 +6,8 @@
 
 // was intake toggled just now?
 // no, so it is false
-bool intakePressed = false;
+bool intakePressed_intaking = false;
+bool intakePressed_outtaking = false
 int intakeState = 0;
 
 void updateIntake() {
@@ -14,9 +15,9 @@ void updateIntake() {
     // state = 2: outtake
     // state = 0: off
 
-    // if x is pressed
-    if (controller.get_digital(pros::E_CONTROLLER_DIGITAL_X)) {
-        if (!intakePressed) {
+    // if R1 is pressed
+    if (controller.get_digital(pros::E_CONTROLLER_DIGITAL_R1)) {
+        if (!intakePressed_intaking) {
             // if it is on turn it off
             if(intakeState == 1) {
                 intakeState = 0;
@@ -28,17 +29,17 @@ void updateIntake() {
             }
         }
         // intake was just toggled just now
-        intakePressed = true;
+        intakePressed_intaking = true;
 
     } 
     // intake was not toggled just now
     else {
-        intakePressed = false;
+        intakePressed_intaking = false;
     }
 
-    // if b is pressed
-    if (controller.get_digital(pros::E_CONTROLLER_DIGITAL_B)) {
-        if (!intakePressed) {
+    // if R2 is pressed
+    if (controller.get_digital(pros::E_CONTROLLER_DIGITAL_L2)) {
+        if (!intakePressed_outtaking) {
             // if it is on turn it off
             if(intakeState == 2) {
                 intakeState = 0;
@@ -49,13 +50,13 @@ void updateIntake() {
                 intakeState = 2;
             }
         }
-        // iuntake was just toggled just now
-        intakePressed = true;
+        // intake was just toggled just now
+        intakePressed_outtaking = true;
         
     }
     // intake was not toggled just now
     else {
-        intakePressed = false;
+        intakePressed_outtaking = false;
     }
 }
 
@@ -66,9 +67,11 @@ void runIntake() {
             // intaking
             case 1:
                 intake.move_voltage(127);
+                storage.move_voltage(127);
             // outtaking
             case 2:
                 intake.move_voltage(-127);
+                storage.move_voltage(-127);
             // off
             case 0:
                 intake.move_voltage(0);

@@ -3,11 +3,27 @@
 pros::Controller controller(pros::E_CONTROLLER_MASTER);
 
 // motor groups
-pros::MotorGroup left_mg({1, 2, 3}, pros::v5::MotorGears::blue);
-pros::MotorGroup right_mg({4, 5, 6}, pros::v5::MotorGears::blue);
+pros::MotorGroup left_mg({0, 0, 0}, pros::v5::MotorGears::blue);
+pros::MotorGroup right_mg({0, 0, 0}, pros::v5::MotorGears::blue);
 
 // intake mapping
-pros::Motor intake(13, pros::v5::MotorGears::blue);
+pros::Motor intake(0, pros::v5::MotorGears::blue);
+
+// storage mapping
+pros::Motor storage(0, pros::v5::MotorGears::blue);
+
+// score mapping
+pros::Motor score(0, pros::v5::MotorGears::blue);
+
+// descore piston mapping
+pros::ADIAnalogOut descorePiston ('A');
+
+// mid goal piston mapping
+pros::ADIAnalogOut midGoalPiston ('A');
+
+// matchloader piston mapping
+pros::ADIAnalogOut matchloader_L ('A');
+pros::ADIAnalogOut matchloader_R ('A');
 
 // imu mapping
 pros::Imu imu(1);
@@ -149,5 +165,3 @@ lemlib::Chassis chassis(drivetrain,
                         sensors 
                         // odom
 );
-
-pros::ADIAnalogOut piston ('A');

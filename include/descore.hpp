@@ -5,6 +5,6 @@
 // descore state
 extern int descoreState;
 
-// initializing update and run functions for intake
+// initializing update and run functions for descore
 void updateDescore();
 void runDescore();
