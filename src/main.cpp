@@ -7,9 +7,11 @@
 void on_center_button() {
 	static bool pressed = false;
 	pressed = !pressed;
+
 	if (pressed) {
 		pros::lcd::set_text(2, "Center Button is Pressed");
 	} 
+
 	else {
 		pros::lcd::clear_line(2);
 	}
@@ -24,17 +26,23 @@ void initialize() {
 	initTasks();
 }
 
-void disabled() {}
+void disabled() {
 
-void competition_initialize() {}
+}
 
-void autonomous() {}
+void competition_initialize() {
+
+}
+
+void autonomous() {
+
+}
 
 void opcontrol() {
 	while (true) {
 		// for those who aren't familiar with aircraft controls:
 		// throttle is forward power
-		// rudder is your yaw (or your turn)
+		// rudder is your yaw/turn
 		int throttle = controller.get_analog(pros::E_CONTROLLER_ANALOG_LEFT_Y);
         int rudder = controller.get_analog(pros::E_CONTROLLER_ANALOG_RIGHT_X);
 
