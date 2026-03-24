@@ -5,7 +5,7 @@
 // was intake toggled just now?
 // no, so it is false
 bool intakePressed_intaking = false;
-bool intakePressed_outtaking = false
+bool intakePressed_outtaking = false;
 int intakeState = 0;
 
 void updateIntake() {

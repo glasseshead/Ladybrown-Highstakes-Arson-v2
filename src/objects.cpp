@@ -1,14 +1,15 @@
 #include "objects.hpp"
+#include "pros/adi.hpp"
 
 pros::Controller controller(pros::E_CONTROLLER_MASTER);
 
 // controls mapping
-scoreControl = pros::E_CONTROLLER_DIGITAL_L1;
-outtakeControl = pros::E_CONTROLLER_DIGITAL_L2;
-intakeControl = pros::E_CONTROLLER_DIGITAL_R1;
-descoreControl = pros::E_CONTROLLER_DIGITAL_R2;
-matchloaderControl = pros::E_CONTROLLER_DIGITAL_DOWN;
-midGoalControl = pros::E_CONTROLLER_DIGITAL_RIGHT;
+pros::controller_digital_e_t scoreControl = pros::E_CONTROLLER_DIGITAL_L1;
+pros::controller_digital_e_t outtakeControl = pros::E_CONTROLLER_DIGITAL_L2;
+pros::controller_digital_e_t intakeControl = pros::E_CONTROLLER_DIGITAL_R1;
+pros::controller_digital_e_t descoreControl = pros::E_CONTROLLER_DIGITAL_R2;
+pros::controller_digital_e_t matchloaderControl = pros::E_CONTROLLER_DIGITAL_DOWN;
+pros::controller_digital_e_t midGoalControl = pros::E_CONTROLLER_DIGITAL_RIGHT;
 
 // motor groups
 pros::MotorGroup left_mg({0, 0, 0}, pros::v5::MotorGears::blue);
@@ -24,14 +25,14 @@ pros::Motor storage(0, pros::v5::MotorGears::blue);
 pros::Motor score(0, pros::v5::MotorGears::blue);
 
 // descore piston mapping
-pros::ADIAnalogOut descorePiston ('A');
+pros::adi::AnalogOut descorePiston ('A');
 
 // mid goal piston mapping
-pros::ADIAnalogOut midGoalPiston ('A');
+pros::adi::AnalogOut midGoalPiston ('A');
 
 // matchloader piston mapping
-pros::ADIAnalogOut matchLoaderPiston_L ('A');
-pros::ADIAnalogOut matchLoaderPiston_R ('A');
+pros::adi::AnalogOut matchLoaderPiston_L ('A');
+pros::adi::AnalogOut matchLoaderPiston_R ('A');
 
 // imu mapping
 pros::Imu imu(1);

@@ -2,6 +2,7 @@
 
 #include "main.h"
 #include "lemlib/api.hpp"
+#include "pros/adi.hpp"
 
 // intake motor
 extern pros::Motor intake;
@@ -31,19 +32,19 @@ extern lemlib::ControllerSettings lateral_controller;
 extern lemlib::ControllerSettings angular_controller;
 
 // descore piston
-extern pros::ADIAnalogOut descorePiston;
+extern pros::adi::AnalogOut descorePiston;
 
 // mid goal piston
-extern pros::ADIAnalogOut midGoalPiston;
+extern pros::adi::AnalogOut midGoalPiston;
 
 // matchloader pistons
-extern pros::ADIAnalogOut matchLoaderPiston_L;
-extern pros::ADIAnalogOut matchLoaderPiston_R;
+extern pros::adi::AnalogOut matchLoaderPiston_L;
+extern pros::adi::AnalogOut matchLoaderPiston_R;
 
 // controls
-extern scoreControl;
-extern outtakeControl;
-extern intakeControl;
-extern descoreControl;
-extern matchloaderControl;
-extern midGoalControl;
+extern pros::controller_digital_e_t scoreControl;
+extern pros::controller_digital_e_t outtakeControl;
+extern pros::controller_digital_e_t intakeControl;
+extern pros::controller_digital_e_t descoreControl;
+extern pros::controller_digital_e_t matchloaderControl;
+extern pros::controller_digital_e_t midGoalControl;

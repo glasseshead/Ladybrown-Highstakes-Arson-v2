@@ -7,7 +7,7 @@
 bool midGoalPressed = false;
 int midGoalState = 0;
 
-void updatemidGoal() {
+void updateMidGoal() {
     // state = 0: down
     // state = 1: up
 
@@ -34,7 +34,7 @@ void updatemidGoal() {
     }
 }
 
-void runmidGoal() {
+void runMidGoal() {
     while (true) {
         // based on our mid goal state, we toggle it up or down
         switch (midGoalState) {

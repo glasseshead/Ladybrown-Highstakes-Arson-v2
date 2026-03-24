@@ -13,7 +13,7 @@ void updateScore() {
 
     // if L1 is pressed
     if (controller.get_digital(scoreControl)) {
-        if (!scorePressed_intaking) {
+        if (!scorePressed) {
             // if it is on turn it off
             if(scoreState == 1) {
                 scoreState = 0;
@@ -25,12 +25,12 @@ void updateScore() {
             }
         }
         // score was just toggled just now
-        scorePressed_intaking = true;
+        scorePressed = true;
 
     } 
     // score was not toggled just now
     else {
-        scorePressed_intaking = false;
+        scorePressed = false;
     }
 }
 
