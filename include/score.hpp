@@ -1,6 +1,4 @@
 #pragma once
-#include "main.h"
-#include "objects.hpp"
 
 // score state
 extern int scoreState;

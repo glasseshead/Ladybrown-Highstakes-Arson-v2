@@ -38,10 +38,10 @@ void runMidGoal() {
     while (true) {
         // based on our mid goal state, we toggle it up or down
         switch (midGoalState) {
-            // mid goal down
+            // mid goal up
             case 0:
                 midGoalPiston.set_value(false);
-            // mid goal up
+            // mid goal down
             case 1:
                 midGoalPiston.set_value(true);
         }

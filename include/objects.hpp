@@ -1,7 +1,5 @@
 #pragma once
-
-#include "main.h"
-#include "lemlib/api.hpp"
+#include "lemlib/api.hpp" // IWYU pragma: keep
 #include "pros/adi.hpp"
 
 // intake motor

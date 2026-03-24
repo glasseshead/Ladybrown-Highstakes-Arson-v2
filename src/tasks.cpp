@@ -1,6 +1,4 @@
-#include "main.h"
 #include "lemlib/api.hpp" // IWYU pragma: keep
-#include "objects.hpp"
 #include "intake.hpp"
 #include "descore.hpp"
 #include "matchloader.hpp"

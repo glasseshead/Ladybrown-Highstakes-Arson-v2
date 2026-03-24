@@ -1,4 +1,5 @@
 #include "score.hpp"
+#include "objects.hpp"
 
 // reset score values
 
