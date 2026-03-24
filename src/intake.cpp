@@ -13,7 +13,7 @@ void updateIntake() {
     // state = 2: outtake
     // state = 0: off
 
-    // if R1 is pressed
+    // if intake control is pressed
     if (controller.get_digital(intakeControl)) {
         if (!intakePressed_intaking) {
             // if it is on turn it off

@@ -12,7 +12,7 @@ void updateScore() {
     // state = 1: score
     // state = 0: off
 
-    // if L1 is pressed
+    // if score control is pressed
     if (controller.get_digital(scoreControl)) {
         if (!scorePressed) {
             // if it is on turn it off
@@ -42,11 +42,11 @@ void runScore() {
             // scoring
             case 1:
                 score.move_voltage(127);
-                storage.move_voltage(127);
+                intake.move_voltage(127);
             // off
             case 0:
                 score.move_voltage(0);
-                storage.move_voltage(0);
+                intake.move_voltage(0);
         }
     }
 }

@@ -4,6 +4,7 @@
 #include "matchloader.hpp"
 #include "midgoal.hpp"
 #include "score.hpp"
+#include "trapdoor.hpp"
 #include "tasks.hpp"
 
 void initTasks() {
@@ -12,4 +13,5 @@ void initTasks() {
     pros::Task descoreTask(runDescore, "descore wing task");
     pros::Task matchLoaderTask(runMatchLoader, "matchloader task");
     pros::Task midGoalTask(runMidGoal, "mid goal task");
+    pros::Task trapdoorTask(runTrapdoor, "trapdoor task");
 }

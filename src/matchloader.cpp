@@ -11,7 +11,7 @@ void updateMatchLoader() {
     // state = 0: down
     // state = 1: up
 
-    // if a is pressed
+    // if matchloader control is pressed
     if (controller.get_digital(matchloaderControl)) {
         if (!matchLoaderPressed) {
             // if matchloader is down put it up

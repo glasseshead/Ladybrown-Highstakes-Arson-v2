@@ -27,6 +27,9 @@ pros::adi::AnalogOut descorePiston ('A');
 // mid goal piston mapping
 pros::adi::AnalogOut midGoalPiston ('A');
 
+// trapdoor piston mapping
+pros::adi::AnalogOut trapdoorPiston ('A');
+
 // matchloader piston mapping
 pros::adi::AnalogOut matchLoaderPiston_L ('A');
 pros::adi::AnalogOut matchLoaderPiston_R ('A');

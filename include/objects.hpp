@@ -36,6 +36,9 @@ extern pros::adi::AnalogOut midGoalPiston;
 extern pros::adi::AnalogOut matchLoaderPiston_L;
 extern pros::adi::AnalogOut matchLoaderPiston_R;
 
+// trapdoor piston
+extern pros::adi::AnalogOut trapdoorPiston;
+
 // controls
 extern pros::controller_digital_e_t scoreControl;
 extern pros::controller_digital_e_t outtakeControl;

@@ -11,7 +11,7 @@ void updateMidGoal() {
     // state = 0: down
     // state = 1: up
 
-    // if a is pressed
+    // if mid goal control is pressed
     if (controller.get_digital(midGoalControl)) {
         if (!midGoalPressed) {
             // if mid goal is down put it up
