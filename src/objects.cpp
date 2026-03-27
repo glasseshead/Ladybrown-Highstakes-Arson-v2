@@ -1,4 +1,5 @@
 #include "objects.hpp"
+#include "lemlib/chassis/trackingWheel.hpp"
 #include "pros/adi.hpp"
 
 pros::Controller controller(pros::E_CONTROLLER_MASTER);
@@ -122,7 +123,6 @@ lemlib::TrackingWheel horizontal_tracking_wheel(
     // drivetrain rpm
 );
 
-// TODO: Configure your odometry sensors.
 // odom sensors
 lemlib::OdomSensors sensors(&vertical_tracking_wheel, 
                             // vertical tracking wheel 1
