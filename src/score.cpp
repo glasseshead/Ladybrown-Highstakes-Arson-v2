@@ -41,8 +41,8 @@ void runScore() {
         switch (scoreState) {
             // scoring
             case 1:
-                score.move_voltage(127);
-                intake.move_voltage(127);
+                score.move_voltage(600);
+                intake.move_voltage(600);
             // off
             case 0:
                 score.move_voltage(0);

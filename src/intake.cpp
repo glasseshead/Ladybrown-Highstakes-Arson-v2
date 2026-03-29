@@ -64,10 +64,10 @@ void runIntake() {
         switch (intakeState) {
             // intaking
             case 1:
-                intake.move_voltage(127);
+                intake.move_voltage(600);
             // outtaking
             case 2:
-                intake.move_voltage(-127);
+                intake.move_voltage(-600);
             // off
             case 0:
                 intake.move_voltage(0);
