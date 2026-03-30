@@ -3,11 +3,9 @@
 #include "objects.hpp"
 #include "tasks.hpp"
 #include "intake.hpp"
-#include "descore.hpp"
-#include "mogoclamphpp"
-#include "midgoal.hpp"
+#include "ladybrown.hpp"
+#include "mogoclamp.hpp"
 #include "score.hpp"
-#include "trapdoor.hpp"
 
 void on_center_button() {
 	static bool pressed = false;
@@ -54,11 +52,9 @@ void opcontrol() {
         chassis.arcade(throttle, rudder);
 
 		updateIntake();
-		updateScore();
-		updateDescore();
-		updateMidGoal();
-		updateMatchLoader();
-		updateTrapdoor();
+		// updateScore();
+		updateLadybrown();
+		updateMogoClamp();
 
 		// standard wait 10 ms
 		pros::delay(10);  
