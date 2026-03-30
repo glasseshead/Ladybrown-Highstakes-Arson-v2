@@ -5,76 +5,54 @@
 
 pros::Controller controller(pros::E_CONTROLLER_MASTER);
 
-// TODO: Configure your ports based on your robot.
 std::int8_t LEFT_MG_0 = 0;
 std::int8_t LEFT_MG_1 = 0;
 std::int8_t LEFT_MG_2 = 0;
-std::int8_t LEFT_MG_3 = 0;
 
 std::int8_t RIGHT_MG_0 = 0;
 std::int8_t RIGHT_MG_1 = 0;
 std::int8_t RIGHT_MG_2 = 0;
-std::int8_t RIGHT_MG_3 = 0;
 
 std::int8_t INTAKE_MOTOR = 0;
-std::int8_t SCORE_MOTOR = 0;
+std::int8_t LADYBROWN_MOTOR_LEFT = 0;
+std::int8_t LADYBROWN_MOTOR_RIGHT = 0;
 
-char DESCORE_PISTON = 'A';
-char MID_GOAL_PISTON = 'A';
-char TRAPDOOR_PISTON = 'A';
-char MATCHLOADER_PISTONS = 'A';
+char MOGOCLAMP_PISTON = 'A';
+char HANG_PISTON = 'A';
+char DOINKER_PISTON = 'A';
 
 std::int8_t IMU_SENSOR = 0;
 
 // TODO: Configure your controls to your preference.
 // Original Controls:
-// scoreControl = pros::E_CONTROLLER_DIGITAL_L1;
-// outtakeControl = pros::E_CONTROLLER_DIGITAL_L2;
-// intakeControl = pros::E_CONTROLLER_DIGITAL_R1;
-// descoreControl = pros::E_CONTROLLER_DIGITAL_R2;
-// matchloaderControl = pros::E_CONTROLLER_DIGITAL_DOWN;
-// midGoalControl = pros::E_CONTROLLER_DIGITAL_RIGHT;
-// trapdoorControl = pros::E_CONTROLLER_DIGITAL_UP;
+// TODO: write these you bum
 
 // controls mapping
 pros::controller_digital_e_t scoreControl = pros::E_CONTROLLER_DIGITAL_L1;
-pros::controller_digital_e_t outtakeControl = pros::E_CONTROLLER_DIGITAL_L2;
-pros::controller_digital_e_t intakeControl = pros::E_CONTROLLER_DIGITAL_R1;
-pros::controller_digital_e_t descoreControl = pros::E_CONTROLLER_DIGITAL_R2;
-pros::controller_digital_e_t matchloaderControl = pros::E_CONTROLLER_DIGITAL_DOWN;
-pros::controller_digital_e_t midGoalControl = pros::E_CONTROLLER_DIGITAL_RIGHT;
-pros::controller_digital_e_t trapdoorControl = pros::E_CONTROLLER_DIGITAL_UP;
 
 // motor groups (3WD)
 pros::MotorGroup left_mg({LEFT_MG_0, LEFT_MG_1, LEFT_MG_2}, pros::v5::MotorGears::blue);
 pros::MotorGroup right_mg({RIGHT_MG_0, RIGHT_MG_1, RIGHT_MG_2}, pros::v5::MotorGears::blue);
 
-// motor groups (4WD)
-// pros::MotorGroup left_mg({LEFT_MG_0, LEFT_MG_1, LEFT_MG_2, LEFT_MG_3}, pros::v5::MotorGears::blue);
-// pros::MotorGroup right_mg({RIGHT_MG_0, RIGHT_MG_1, RIGHT_MG_2, RIGHT_MG_3}, pros::v5::MotorGears::blue);
-
 // intake mapping
 pros::Motor intake(INTAKE_MOTOR, pros::v5::MotorGears::blue);
 
-// score mapping
-pros::Motor score(SCORE_MOTOR, pros::v5::MotorGears::blue);
+// ladybrown mapping
+pros::Motor ladybrown_l(LADYBROWN_MOTOR_LEFT, pros::v5::MotorGears::green);
+pros::Motor ladybrown_r(LADYBROWN_MOTOR_RIGHT, pros::v5::MotorGears::green);
 
-// descore piston mapping
-pros::adi::AnalogOut descorePiston (DESCORE_PISTON);
+// mogo clamp piston mapping
+pros::adi::DigitalOut mogoClampPiston(MOGOCLAMP_PISTON);
 
-// mid goal piston mapping
-pros::adi::AnalogOut midGoalPiston (MID_GOAL_PISTON);
+// hang piston mapping
+pros::adi::DigitalOut hangPiston(HANG_PISTON);
 
-// trapdoor piston mapping
-pros::adi::AnalogOut trapdoorPiston (TRAPDOOR_PISTON);
-
-// matchloader piston mapping
-pros::adi::AnalogOut matchLoaderPistons (MATCHLOADER_PISTONS);
+// doinker piston mapping
+pros::adi::DigitalOut doinkerPiston(DOINKER_PISTON);
 
 // imu mapping
 pros::Imu imu(IMU_SENSOR);
 
-// TODO: Configure your drivetrain settings.
 // drivetrain mapping
 lemlib::Drivetrain drivetrain(&left_mg,
                               // left motor group
@@ -95,7 +73,6 @@ lemlib::Drivetrain drivetrain(&left_mg,
                               // horizontal drift
 );
 
-// TODO: Configure your tracking wheel settings.
 // tracking wheel mapping
 lemlib::TrackingWheel vertical_tracking_wheel(
     &left_mg,
@@ -143,7 +120,6 @@ lemlib::OdomSensors sensors(&vertical_tracking_wheel,
                             // inertia sensor
 );
 
-// TODO: Configure your lateral and angular controllers.
 // lateral controller settings
 lemlib::ControllerSettings lateral_controller(2, 
                                               // proportional gain (kP)

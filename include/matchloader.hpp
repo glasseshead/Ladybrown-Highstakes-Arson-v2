@@ -2,9 +2,9 @@
 #include "main.h"
 #include "objects.hpp"
 
-// matchloader state
-extern int matchLoaderState;
+// mogo clamp state
+extern int mogoClampState;
 
-// initializing update and run functions for matchloader
-void updateMatchLoader();
-void runMatchLoader();
+// initializing update and run functions for mogo clamp
+void updateMogoClamp();
+void runMogoClamp();

@@ -2,11 +2,12 @@
 #include "lemlib/api.hpp" // IWYU pragma: keep
 #include "pros/adi.hpp"
 
-// intake motor
+// intake & storage motor
 extern pros::Motor intake;
 
-// score motor
-extern pros::Motor score;
+// ladybrown arm motor
+extern pros::Motor ladybrown_l;
+extern pros::Motor ladybrown_r;
 
 // drivetrain and chassis
 extern lemlib::Drivetrain drivetrain;
@@ -26,55 +27,42 @@ extern lemlib::OdomSensors sensors;
 extern lemlib::ControllerSettings lateral_controller;
 extern lemlib::ControllerSettings angular_controller;
 
-// descore piston
-extern pros::adi::AnalogOut descorePiston;
+// mogo clamp piston
+extern pros::adi::DigitalOut mogoClampPiston;
 
-// mid goal piston
-extern pros::adi::AnalogOut midGoalPiston;
+// hang piston
+extern pros::adi::DigitalOut hangPiston;
 
-// matchloader pistons
-extern pros::adi::AnalogOut matchLoaderPistons;
-
-// trapdoor piston
-extern pros::adi::AnalogOut trapdoorPiston;
+// doinker piston
+extern pros::adi::DigitalOut doinkerPiston;
 
 // controls
 extern pros::controller_digital_e_t scoreControl;
-extern pros::controller_digital_e_t outtakeControl;
-extern pros::controller_digital_e_t intakeControl;
-extern pros::controller_digital_e_t descoreControl;
-extern pros::controller_digital_e_t matchloaderControl;
-extern pros::controller_digital_e_t midGoalControl;
-extern pros::controller_digital_e_t trapdoorControl;
 
 // drivetrain motor ports
 extern std::int8_t LEFT_MG_0;
 extern std::int8_t LEFT_MG_1;
 extern std::int8_t LEFT_MG_2;
-extern std::int8_t LEFT_MG_3;
 
 extern std::int8_t RIGHT_MG_0;
 extern std::int8_t RIGHT_MG_1;
 extern std::int8_t RIGHT_MG_2;
-extern std::int8_t RIGHT_MG_3;
 
-// intake motor port
+// intake & storage motor port
 extern std::int8_t INTAKE_MOTOR;
 
-// score motor port
-extern std::int8_t SCORE_MOTOR;
+// ladybrown motor port
+extern std::int8_t LADYBROWN_MOTOR_LEFT;
+extern std::int8_t LADYBROWN_MOTOR_RIGHT;
 
-// descore piston port
-extern char DESCORE_PISTON;
+// mogo clamp piston port
+extern char MOGOCLAMP_PISTON;
 
-// mid goal piston port
-extern char MID_GOAL_PISTON;
+// hang piston port
+extern char HANG_PISTON;
 
-// trapdoor piston port
-extern char TRAPDOOR_PISTON;
-
-// matchloader pistons port
-extern char MATCHLOADER_PISTONS;
+// doinker piston port
+extern char DOINKER_PISTON;
 
 // imu port
 extern std::int8_t IMU;

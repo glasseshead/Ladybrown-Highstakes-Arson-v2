@@ -1,49 +1,49 @@
-#include "matchloader.hpp"
+#include "mogo clamp.hpp"
 
-// reset matchloader values
+// reset mogo clamp values
 
-// was matchloader toggled just now?
+// was mogo clamp toggled just now?
 // no, so it is false
-bool matchLoaderPressed = false;
-int matchLoaderState = 0;
+bool mogoClampPressed = false;
+int mogoClampState = 0;
 
 void updateMatchLoader() {
     // state = 0: down
     // state = 1: up
 
-    // if matchloader control is pressed
-    if (controller.get_digital(matchloaderControl)) {
-        if (!matchLoaderPressed) {
-            // if matchloader is down put it up
-            if(matchLoaderState == 0) {
-                matchLoaderState = 1;
+    // if mogo clamp control is pressed
+    if (controller.get_digital(mogo clampControl)) {
+        if (!mogoClampPressed) {
+            // if mogo clamp is down put it up
+            if(mogoClampState == 0) {
+                mogoClampState = 1;
             }
 
-            // if matchloader is up put it down
+            // if mogo clamp is up put it down
             else {
-                matchLoaderState = 0;
+                mogoClampState = 0;
             }
         }
-        // matchloader was just toggled just now
-        matchLoaderPressed = true;
+        // mogo clamp was just toggled just now
+        mogoClampPressed = true;
 
     } 
-    // matchloader was not toggled just now
+    // mogo clamp was not toggled just now
     else {
-        matchLoaderPressed = false;
+        mogoClampPressed = false;
     }
 }
 
 void runMatchLoader() {
     while (true) {
-        // based on our matchloader state, we toggle it up or down
-        switch (matchLoaderState) {
-            // matchloader down
+        // based on our mogo clamp state, we toggle it up or down
+        switch (mogoClampState) {
+            // mogo clamp down
             case 0:
-                matchLoaderPistons.set_value(false);
-            // matchloader up
+                mogoClampPistons.set_value(false);
+            // mogo clamp up
             case 1:
-                matchLoaderPistons.set_value(true);
+                mogoClampPistons.set_value(true);
         }
     }
 }
