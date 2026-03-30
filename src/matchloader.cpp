@@ -1,4 +1,4 @@
-#include "mogo clamp.hpp"
+#include "mogoclamp.hpp"
 
 // reset mogo clamp values
 
@@ -12,7 +12,7 @@ void updateMatchLoader() {
     // state = 1: up
 
     // if mogo clamp control is pressed
-    if (controller.get_digital(mogo clampControl)) {
+    if (controller.get_digital(mogoClampControl)) {
         if (!mogoClampPressed) {
             // if mogo clamp is down put it up
             if(mogoClampState == 0) {
