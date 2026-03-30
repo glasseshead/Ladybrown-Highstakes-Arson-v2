@@ -23,12 +23,19 @@ char DOINKER_PISTON = 'A';
 
 std::int8_t IMU_SENSOR = 0;
 
-// TODO: Configure your controls to your preference.
 // Original Controls:
-// TODO: write these you bum
+// intakeControl = pros::E_CONTROLLER_DIGITAL_L1;
+// outtakeControl = pros::E_CONTROLLER_DIGITAL_L2;
+// ladybrownControl = pros::E_CONTROLLER_DIGITAL_R1;
+// MogoClampControl = pros::E_CONTROLLER_DIGITAL_R2;
+// doinkerControl = pros::E_CONTROLLER_DIGITAL_DOWN;
 
 // controls mapping
-pros::controller_digital_e_t scoreControl = pros::E_CONTROLLER_DIGITAL_L1;
+pros::controller_digital_e_t intakeControl = pros::E_CONTROLLER_DIGITAL_L1;
+pros::controller_digital_e_t outtakeControl = pros::E_CONTROLLER_DIGITAL_L2;
+pros::controller_digital_e_t ladybrownControl = pros::E_CONTROLLER_DIGITAL_R1;
+pros::controller_digital_e_t MogoClampControl = pros::E_CONTROLLER_DIGITAL_R2;
+pros::controller_digital_e_t doinkerControl = pros::E_CONTROLLER_DIGITAL_DOWN;
 
 // motor groups (3WD)
 pros::MotorGroup left_mg({LEFT_MG_0, LEFT_MG_1, LEFT_MG_2}, pros::v5::MotorGears::blue);
@@ -40,6 +47,9 @@ pros::Motor intake(INTAKE_MOTOR, pros::v5::MotorGears::blue);
 // ladybrown mapping
 pros::Motor ladybrown_l(LADYBROWN_MOTOR_LEFT, pros::v5::MotorGears::green);
 pros::Motor ladybrown_r(LADYBROWN_MOTOR_RIGHT, pros::v5::MotorGears::green);
+
+// TODO: Check if a motor group for ladybrowns works
+// pros::MotorGroup ladybrowns({ladybrown_l, ladybrown_r}, pros::v5::MotorGears::green)
 
 // mogo clamp piston mapping
 pros::adi::DigitalOut mogoClampPiston(MOGOCLAMP_PISTON);

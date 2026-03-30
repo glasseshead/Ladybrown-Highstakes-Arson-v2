@@ -4,7 +4,7 @@
 #include "tasks.hpp"
 #include "intake.hpp"
 #include "descore.hpp"
-#include "mogo clamp.hpp"
+#include "mogoclamphpp"
 #include "midgoal.hpp"
 #include "score.hpp"
 #include "trapdoor.hpp"

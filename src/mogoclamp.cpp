@@ -7,7 +7,7 @@
 bool mogoClampPressed = false;
 int mogoClampState = 0;
 
-void updateMatchLoader() {
+void updateMogoClamp() {
     // state = 0: down
     // state = 1: up
 
@@ -34,7 +34,7 @@ void updateMatchLoader() {
     }
 }
 
-void runMatchLoader() {
+void runMogoClamp() {
     while (true) {
         // based on our mogo clamp state, we toggle it up or down
         switch (mogoClampState) {

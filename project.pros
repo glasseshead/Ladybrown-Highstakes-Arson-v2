@@ -1,7 +1,7 @@
 {
   "py/object": "pros.conductor.project.Project",
   "py/state": {
-    "project_name": "arson_yaay",
+    "project_name": "ladybrown highstakes",
     "target": "v5",
     "templates": {
       "LemLib": {
@@ -635,7 +635,7 @@
       }
     },
     "upload_options": {
-      "description": "arson is very fun",
+      "description": "ladybrown highstakes from arson",
       "icon": "pros"
     },
     "use_early_access": false

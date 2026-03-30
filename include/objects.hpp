@@ -37,7 +37,11 @@ extern pros::adi::DigitalOut hangPiston;
 extern pros::adi::DigitalOut doinkerPiston;
 
 // controls
-extern pros::controller_digital_e_t scoreControl;
+extern pros::controller_digital_e_t intakeControl;
+extern pros::controller_digital_e_t outtakeControl;
+extern pros::controller_digital_e_t ladybrownControl;
+extern pros::controller_digital_e_t MogoClampControl;
+extern pros::controller_digital_e_t doinkerControl;
 
 // drivetrain motor ports
 extern std::int8_t LEFT_MG_0;
