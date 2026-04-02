@@ -5,6 +5,7 @@
 #include "intake.hpp"
 #include "ladybrown.hpp"
 #include "mogoclamp.hpp"
+#include "climb.hpp"
 #include "score.hpp"
 
 void on_center_button() {
@@ -54,6 +55,7 @@ void opcontrol() {
 		updateIntake();
 		// updateScore();
 		updateLadybrown();
+		updateClimb();
 		updateMogoClamp();
 
 		// standard wait 10 ms
