@@ -36,12 +36,16 @@ extern pros::adi::DigitalOut hangPiston;
 // doinker piston
 extern pros::adi::DigitalOut doinkerPiston;
 
+// climb pistons
+extern pros::adi::DigitalOut climbPistons;
+
 // controls
 extern pros::controller_digital_e_t intakeControl;
 extern pros::controller_digital_e_t outtakeControl;
 extern pros::controller_digital_e_t ladybrownControl;
 extern pros::controller_digital_e_t MogoClampControl;
 extern pros::controller_digital_e_t doinkerControl;
+extern pros::controller_digital_e_t climbControl;
 
 // drivetrain motor ports
 extern std::int8_t LEFT_MG_0;
@@ -67,6 +71,9 @@ extern char HANG_PISTON;
 
 // doinker piston port
 extern char DOINKER_PISTON;
+
+// climb pistons port
+extern char CLIMB_PISTONS;
 
 // imu port
 extern std::int8_t IMU;

@@ -12,7 +12,7 @@ void updateMogoClamp() {
     // state = 1: up
 
     // if mogo clamp control is pressed
-    if (controller.get_digital(mogoClampControl)) {
+    if (controller.get_digital(MogoClampControl)) {
         if (!mogoClampPressed) {
             // if mogo clamp is down put it up
             if(mogoClampState == 0) {
@@ -40,10 +40,10 @@ void runMogoClamp() {
         switch (mogoClampState) {
             // mogo clamp down
             case 0:
-                mogoClampPistons.set_value(false);
+                mogoClampPiston.set_value(false);
             // mogo clamp up
             case 1:
-                mogoClampPistons.set_value(true);
+                mogoClampPiston.set_value(true);
         }
     }
 }

@@ -20,6 +20,7 @@ std::int8_t LADYBROWN_MOTOR_RIGHT = 0;
 char MOGOCLAMP_PISTON = 'A';
 char HANG_PISTON = 'A';
 char DOINKER_PISTON = 'A';
+char CLIMB_PISTONS = 'A';
 
 std::int8_t IMU_SENSOR = 0;
 
@@ -29,6 +30,7 @@ std::int8_t IMU_SENSOR = 0;
 // ladybrownControl = pros::E_CONTROLLER_DIGITAL_R1;
 // MogoClampControl = pros::E_CONTROLLER_DIGITAL_R2;
 // doinkerControl = pros::E_CONTROLLER_DIGITAL_DOWN;
+// climbControl = pros::E_CONTROLLER_DIGITAL_LEFT;
 
 // controls mapping
 pros::controller_digital_e_t intakeControl = pros::E_CONTROLLER_DIGITAL_L1;
@@ -36,6 +38,7 @@ pros::controller_digital_e_t outtakeControl = pros::E_CONTROLLER_DIGITAL_L2;
 pros::controller_digital_e_t ladybrownControl = pros::E_CONTROLLER_DIGITAL_R1;
 pros::controller_digital_e_t MogoClampControl = pros::E_CONTROLLER_DIGITAL_R2;
 pros::controller_digital_e_t doinkerControl = pros::E_CONTROLLER_DIGITAL_DOWN;
+pros::controller_digital_e_t climbControl = pros::E_CONTROLLER_DIGITAL_LEFT;
 
 // motor groups (3WD)
 pros::MotorGroup left_mg({LEFT_MG_0, LEFT_MG_1, LEFT_MG_2}, pros::v5::MotorGears::blue);
@@ -59,6 +62,9 @@ pros::adi::DigitalOut hangPiston(HANG_PISTON);
 
 // doinker piston mapping
 pros::adi::DigitalOut doinkerPiston(DOINKER_PISTON);
+
+// climb pistons mapping
+pros::adi::DigitalOut climbPistons(CLIMB_PISTONS);
 
 // imu mapping
 pros::Imu imu(IMU_SENSOR);

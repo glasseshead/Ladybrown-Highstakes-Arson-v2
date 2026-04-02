@@ -40,10 +40,10 @@ void runDoinker() {
         switch (doinkerState) {
             // doinker down
             case 0:
-                doinkerPistons.set_value(false);
+                doinkerPiston.set_value(false);
             // doinker up
             case 1:
-                doinkerPistons.set_value(true);
+                doinkerPiston.set_value(true);
         }
     }
 }
