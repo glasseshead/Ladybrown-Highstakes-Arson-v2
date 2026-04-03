@@ -38,10 +38,11 @@ void runClimb() {
     while (true) {
         // based on our climb state, we toggle it up or down
         switch (climbState) {
-            // climb down
+            // climb up and pull
             case 0:
                 climbPistons.set_value(false);
-            // climb up
+                climbPistons.set_value(false);
+            // climb align and set up
             case 1:
                 climbPistons.set_value(true);
         }
