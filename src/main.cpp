@@ -6,6 +6,7 @@
 #include "ladybrown.hpp"
 #include "mogoclamp.hpp"
 #include "climb.hpp"
+#include "color.hpp"
 #include "score.hpp"
 
 void on_center_button() {
@@ -27,6 +28,7 @@ void initialize() {
 
 	pros::lcd::register_btn1_cb(on_center_button);
 
+	initialize_vision();
 	initTasks();
 }
 
@@ -35,7 +37,18 @@ void disabled() {
 }
 
 void competition_initialize() {
+    // set detected to the largest "blob" of color detected
+	pros::vision_object_s_t detected = vision.get_by_size(0);
 
+	// to set up for color sort
+    // if the signature is red, set the team color signature to red
+    if (detected.signature == redSignature.id) {
+        teamColorSignature = redSignature;
+    }
+    // if the signature is blue, set the team color signature to red
+    else if (detected.signature == blueSignature.id) {
+        teamColorSignature = blueSignature;
+    }
 }
 
 void autonomous() {

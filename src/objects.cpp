@@ -19,6 +19,8 @@ std::int8_t LADYBROWN_MOTOR_RIGHT = 0;
 
 std::int8_t VISION_SENSOR = 0;
 
+std::int32_t INTAKE_VOLTAGE = 10000;
+
 char MOGOCLAMP_PISTON = 'A';
 char HANG_PISTON = 'A';
 char DOINKER_PISTON = 'A';
@@ -98,10 +100,17 @@ pros::vision_signature_s_t redSignature =
 pros::vision_signature_s_t blueSignature =
     pros::Vision::signature_from_utility(BLUESIG, BLUEu_min, BLUEu_max, BLUEu_mean, BLUEv_min, BLUEv_max, BLUEv_mean, BLUErange, BLUEtype);
 
+// in order for the code to recognize that it was defined, red is here as a dummy
+pros::vision_signature_s_t teamColorSignature =
+    pros::Vision::signature_from_utility(REDSIG, REDu_min, REDu_max, REDu_mean, REDv_min, REDv_max, REDv_mean, REDrange, REDtype);
+
 // vision sensor mapping
 pros::Vision vision (VISION_SENSOR);
-vision.set_signature(REDSIG, &redSignature);
-vision.set_signature(BLUESIG, &blueSignature);
+
+void initialize_vision() {
+    vision.set_signature(REDSIG, &redSignature);
+    vision.set_signature(BLUESIG, &blueSignature);
+}
 
 // drivetrain mapping
 lemlib::Drivetrain drivetrain(&left_mg,

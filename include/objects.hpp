@@ -1,6 +1,7 @@
 #pragma once
 #include "lemlib/api.hpp" // IWYU pragma: keep
 #include "pros/adi.hpp"
+#include "pros/vision.hpp"
 
 // intake & storage motor
 extern pros::Motor intake;
@@ -82,11 +83,15 @@ extern char CLIMB_PISTONS;
 extern std::int8_t IMU;
 
 // vision sensor port
-extern std::int8_t VISION_SENSOR
+extern std::int8_t VISION_SENSOR;
+
+// intake motor voltage (for color sort)
+extern std::int32_t INTAKE_VOLTAGE;
 
 // vision sensor color signatures
 extern pros::vision_signature_s_t redSignature;
 extern pros::vision_signature_s_t blueSignature;
+extern pros::vision_signature_s_t teamColorSignature;
 
 extern int32_t REDSIG;
 extern int32_t BLUESIG;
@@ -108,3 +113,6 @@ extern int32_t BLUEv_max;
 extern int32_t BLUEv_mean;
 extern int32_t BLUErange;
 extern int32_t BLUEtype;
+
+// initializing initialize vision sensor for color
+void initialize_vision();
