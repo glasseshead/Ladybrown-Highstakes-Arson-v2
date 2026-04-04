@@ -5,6 +5,7 @@
 
 pros::Controller controller(pros::E_CONTROLLER_MASTER);
 
+// TODO: Configure your ports based on your robot.
 std::int8_t LEFT_MG_0 = 0;
 std::int8_t LEFT_MG_1 = 0;
 std::int8_t LEFT_MG_2 = 0;
@@ -19,8 +20,6 @@ std::int8_t LADYBROWN_MOTOR_RIGHT = 0;
 
 std::int8_t VISION_SENSOR = 0;
 
-std::int32_t INTAKE_VOLTAGE = 10000;
-
 char MOGOCLAMP_PISTON = 'A';
 char HANG_PISTON = 'A';
 char DOINKER_PISTON = 'A';
@@ -28,6 +27,7 @@ char CLIMB_PISTONS = 'A';
 
 std::int8_t IMU_SENSOR = 0;
 
+// TODO: Configure your controls to your preference.
 // Original Controls:
 // intakeControl = pros::E_CONTROLLER_DIGITAL_L1;
 // outtakeControl = pros::E_CONTROLLER_DIGITAL_L2;
@@ -44,35 +44,7 @@ pros::controller_digital_e_t MogoClampControl = pros::E_CONTROLLER_DIGITAL_R2;
 pros::controller_digital_e_t doinkerControl = pros::E_CONTROLLER_DIGITAL_DOWN;
 pros::controller_digital_e_t climbControl = pros::E_CONTROLLER_DIGITAL_LEFT;
 
-// motor groups (3WD)
-pros::MotorGroup left_mg({LEFT_MG_0, LEFT_MG_1, LEFT_MG_2}, pros::v5::MotorGears::blue);
-pros::MotorGroup right_mg({RIGHT_MG_0, RIGHT_MG_1, RIGHT_MG_2}, pros::v5::MotorGears::blue);
-
-// intake mapping
-pros::Motor intake(INTAKE_MOTOR, pros::v5::MotorGears::blue);
-
-// ladybrown mapping
-pros::Motor ladybrown_l(LADYBROWN_MOTOR_LEFT, pros::v5::MotorGears::green);
-pros::Motor ladybrown_r(LADYBROWN_MOTOR_RIGHT, pros::v5::MotorGears::green);
-
-// TODO: Check if a motor group for ladybrowns works
-// pros::MotorGroup ladybrowns({ladybrown_l, ladybrown_r}, pros::v5::MotorGears::green)
-
-// mogo clamp piston mapping
-pros::adi::DigitalOut mogoClampPiston(MOGOCLAMP_PISTON);
-
-// hang piston mapping
-pros::adi::DigitalOut hangPiston(HANG_PISTON);
-
-// doinker piston mapping
-pros::adi::DigitalOut doinkerPiston(DOINKER_PISTON);
-
-// climb pistons mapping
-pros::adi::DigitalOut climbPistons(CLIMB_PISTONS);
-
-// imu mapping
-pros::Imu imu(IMU_SENSOR);
-
+// TODO: Configure your colour signatures
 int32_t REDSIG = 1;
 int32_t BLUESIG = 1;
 
@@ -94,6 +66,33 @@ int32_t BLUEv_mean = 0;
 int32_t BLUErange = 0;
 int32_t BLUEtype = 0;
 
+// motor groups (3WD)
+pros::MotorGroup left_mg({LEFT_MG_0, LEFT_MG_1, LEFT_MG_2}, pros::v5::MotorGears::blue);
+pros::MotorGroup right_mg({RIGHT_MG_0, RIGHT_MG_1, RIGHT_MG_2}, pros::v5::MotorGears::blue);
+
+// intake mapping & voltage
+pros::Motor intake(INTAKE_MOTOR, pros::v5::MotorGears::blue);
+std::int32_t INTAKE_VOLTAGE = 12000;
+
+// ladybrown mapping
+pros::Motor ladybrown_l(LADYBROWN_MOTOR_LEFT, pros::v5::MotorGears::green);
+pros::Motor ladybrown_r(LADYBROWN_MOTOR_RIGHT, pros::v5::MotorGears::green);
+
+// mogo clamp piston mapping
+pros::adi::DigitalOut mogoClampPiston(MOGOCLAMP_PISTON);
+
+// hang piston mapping
+pros::adi::DigitalOut hangPiston(HANG_PISTON);
+
+// doinker piston mapping
+pros::adi::DigitalOut doinkerPiston(DOINKER_PISTON);
+
+// climb pistons mapping
+pros::adi::DigitalOut climbPistons(CLIMB_PISTONS);
+
+// imu mapping
+pros::Imu imu(IMU_SENSOR);
+
 pros::vision_signature_s_t redSignature =
     pros::Vision::signature_from_utility(REDSIG, REDu_min, REDu_max, REDu_mean, REDv_min, REDv_max, REDv_mean, REDrange, REDtype);
 
@@ -112,6 +111,7 @@ void initialize_vision() {
     vision.set_signature(BLUESIG, &blueSignature);
 }
 
+// TODO: Configure your drivetrain settings.
 // drivetrain mapping
 lemlib::Drivetrain drivetrain(&left_mg,
                               // left motor group
@@ -132,6 +132,7 @@ lemlib::Drivetrain drivetrain(&left_mg,
                               // horizontal drift
 );
 
+// TODO: Configure your lateral and angular controllers.
 // tracking wheel mapping
 lemlib::TrackingWheel vertical_tracking_wheel(
     &left_mg,
