@@ -17,6 +17,8 @@ std::int8_t INTAKE_MOTOR = 0;
 std::int8_t LADYBROWN_MOTOR_LEFT = 0;
 std::int8_t LADYBROWN_MOTOR_RIGHT = 0;
 
+std::int8_t VISION_SENSOR = 0;
+
 char MOGOCLAMP_PISTON = 'A';
 char HANG_PISTON = 'A';
 char DOINKER_PISTON = 'A';
@@ -68,6 +70,38 @@ pros::adi::DigitalOut climbPistons(CLIMB_PISTONS);
 
 // imu mapping
 pros::Imu imu(IMU_SENSOR);
+
+int32_t REDSIG = 1;
+int32_t BLUESIG = 1;
+
+int32_t REDu_min = 0;
+int32_t REDu_max = 0;
+int32_t REDu_mean = 0;
+int32_t REDv_min = 0;
+int32_t REDv_max = 0;
+int32_t REDv_mean = 0;
+int32_t REDrange = 0;
+int32_t REDtype = 0;
+
+int32_t BLUEu_min = 0;
+int32_t BLUEu_max = 0;
+int32_t BLUEu_mean = 0;
+int32_t BLUEv_min = 0;
+int32_t BLUEv_max = 0;
+int32_t BLUEv_mean = 0;
+int32_t BLUErange = 0;
+int32_t BLUEtype = 0;
+
+pros::vision_signature_s_t redSignature =
+    pros::Vision::signature_from_utility(REDSIG, REDu_min, REDu_max, REDu_mean, REDv_min, REDv_max, REDv_mean, REDrange, REDtype);
+
+pros::vision_signature_s_t blueSignature =
+    pros::Vision::signature_from_utility(BLUESIG, BLUEu_min, BLUEu_max, BLUEu_mean, BLUEv_min, BLUEv_max, BLUEv_mean, BLUErange, BLUEtype);
+
+// vision sensor mapping
+pros::Vision vision (VISION_SENSOR);
+vision.set_signature(REDSIG, &redSignature);
+vision.set_signature(BLUESIG, &blueSignature);
 
 // drivetrain mapping
 lemlib::Drivetrain drivetrain(&left_mg,

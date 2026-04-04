@@ -39,6 +39,9 @@ extern pros::adi::DigitalOut doinkerPiston;
 // climb pistons
 extern pros::adi::DigitalOut climbPistons;
 
+// vision sensor
+extern pros::Vision vision;
+
 // controls
 extern pros::controller_digital_e_t intakeControl;
 extern pros::controller_digital_e_t outtakeControl;
@@ -77,3 +80,31 @@ extern char CLIMB_PISTONS;
 
 // imu port
 extern std::int8_t IMU;
+
+// vision sensor port
+extern std::int8_t VISION_SENSOR
+
+// vision sensor color signatures
+extern pros::vision_signature_s_t redSignature;
+extern pros::vision_signature_s_t blueSignature;
+
+extern int32_t REDSIG;
+extern int32_t BLUESIG;
+
+extern int32_t REDu_min;
+extern int32_t REDu_max;
+extern int32_t REDu_mean;
+extern int32_t REDv_min;
+extern int32_t REDv_max;
+extern int32_t REDv_mean;
+extern int32_t REDrange;
+extern int32_t REDtype;
+
+extern int32_t BLUEu_min;
+extern int32_t BLUEu_max;
+extern int32_t BLUEu_mean;
+extern int32_t BLUEv_min;
+extern int32_t BLUEv_max;
+extern int32_t BLUEv_mean;
+extern int32_t BLUErange;
+extern int32_t BLUEtype;
