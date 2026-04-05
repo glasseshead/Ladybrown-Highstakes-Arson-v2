@@ -78,6 +78,9 @@ pros::Motor intake(INTAKE_MOTOR, pros::v5::MotorGears::blue);
 pros::Motor ladybrown_l(LADYBROWN_MOTOR_LEFT, pros::v5::MotorGears::green);
 pros::Motor ladybrown_r(LADYBROWN_MOTOR_RIGHT, pros::v5::MotorGears::green);
 
+// ladybrown motor group mapping
+pros::Motor_Group ladybrown ({ladybrown_l, -ladybrown_r});
+
 // mogo clamp piston mapping
 pros::adi::DigitalOut mogoClampPiston(MOGOCLAMP_PISTON);
 
@@ -258,6 +261,9 @@ lemlib::Chassis chassis(drivetrain,
 );
 
 // TODO: Tune your ladybrown PID and target positions
+// reset output position for ladybrown pid output
+float ladybrownPIDout = 0.00;
+
 // ladybrown pid
 lemlib::PID ladybrownPID(5,
                          // proportional gain (kP)

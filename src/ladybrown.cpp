@@ -4,65 +4,48 @@
 
 // was ladybrown toggled just now?
 // no, so it is false
-bool ladybrownPressed_intaking = false;
-bool ladybrownPressed_outtaking = false;
+bool ladybrownPressed = false;
 int ladybrownState = 0;
 
 void updateLadybrown() {
-    // state = 0: ladybrown stop
-    // state = 1: ladybrown score
-    // state = 2: ladybrown unscore
+    // state = 0: ladybrown down
+    // state = 1: ladybrown up
 
     // if ladybrown control is pressed
     if (controller.get_digital(ladybrownControl)) {
-        if (!ladybrownPressed_intaking) {
-            // if it is scoring turn it to unscore
-            if(ladybrownState == 1) {
-                ladybrownState = 2;
-            }
-            // if it is unscoring turn it off
-            if(ladybrownState == 2) {
-                ladybrownState = 0;
-            }
-            // if it is off turn it to scoring
+        if (!ladybrownPressed) {
+            // if it is down turn it to up
             if(ladybrownState == 0) {
                 ladybrownState = 1;
             }
-/*
-            // if it is off turn it score
-            else {
-                ladybrownState = 1;
-*/
+            // if it is up turn it to down
+            if(ladybrownState == 1) {
+                ladybrownState = 0;
+            }
         }
         // ladybrown was just toggled just now
-        ladybrownPressed_intaking = true;
+        ladybrownPressed = true;
     }
     // ladybrown was not toggled just now
     else {
-        ladybrownPressed_intaking = false;
+        ladybrownPressed = false;
     }
 }
 
-// TODO: Check if it's fine for me to use a motor group
 void runLadybrown() {
     while (true) {
-        // based on our ladybrown state, we toggle it on or off
+        // based on our ladybrown state, we toggle it up or down
         switch (ladybrownState) {
-            // ladybrown off 
+            // ladybrown down 
             case 0:
-                ladybrown_l.move_voltage(0);
-                ladybrown_r.move_voltage(0);
+                float ladybrownPID_target = ladybrownPID_downTarget
 
             // ladybrown scoring
             case 1:
-                ladybrown_l.move_voltage(200);
-                ladybrown_r.move_voltage(200);
-
-            // ladybrown unscoring
-            case 2:
-                ladybrown_l.move_voltage(-200);
-                ladybrown_r.move_voltage(-200);
-
+                float ladybrownPID_target = ladybrownPID_upTarget
         }
+        float ladybrownPIDout = 
+                      ladybrownPID.update (ladybrownPID_target - ladybrownRotationSensor.get_position)
+        ladybrown.move_voltage(ladybrownPIDout);
     }
 }

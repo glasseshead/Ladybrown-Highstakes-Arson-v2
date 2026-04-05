@@ -11,4 +11,5 @@ void initTasks() {
     pros::Task mogoClampTask(runMogoClamp, "mogo clamp task");
     pros::Task ladybrownTask(runLadybrown, "ladybrown task");
     pros::Task climbTask(runClimb, "climb task");
+    pros::Task checkColorTask(checkColor, "check color task");
 }

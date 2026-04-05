@@ -10,6 +10,9 @@ extern pros::Motor intake;
 extern pros::Motor ladybrown_l;
 extern pros::Motor ladybrown_r;
 
+// ladybrown arm motor group
+extern pros::MotorGroup ladybrown;
+
 // drivetrain and chassis
 extern lemlib::Drivetrain drivetrain;
 extern lemlib::Chassis chassis;
@@ -125,6 +128,9 @@ extern int32_t BLUEtype;
 
 // ladybrown arm pid
 extern lemlib::PID ladybrownPID;
+
+// current pid output
+extern float ladybrownPIDout;
 
 // ladybrown arm pid targets
 extern std::int32_t ladybrownPID_downTarget;

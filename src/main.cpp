@@ -79,7 +79,6 @@ void opcontrol() {
 		updateLadybrown();
 		updateClimb();
 		updateMogoClamp();
-		checkColor();
 
 		// standard wait 10 ms
 		pros::delay(10);  
