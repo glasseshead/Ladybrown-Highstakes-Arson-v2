@@ -43,6 +43,9 @@ extern pros::adi::DigitalOut climbPistons;
 // vision sensor
 extern pros::Vision vision;
 
+// ladybrown rotation sensor
+extern pros::Rotation ladybrownRotationSensor;
+
 // controls
 extern pros::controller_digital_e_t intakeControl;
 extern pros::controller_digital_e_t outtakeControl;
@@ -85,6 +88,9 @@ extern std::int8_t IMU;
 // vision sensor port
 extern std::int8_t VISION_SENSOR;
 
+// ladybrown rotation sensor port
+extern std::int8_t LADYBROWN_ROTATION_SENSOR;
+
 // intake motor voltage (for color sort)
 extern std::int32_t INTAKE_VOLTAGE;
 
@@ -114,5 +120,8 @@ extern int32_t BLUEv_mean;
 extern int32_t BLUErange;
 extern int32_t BLUEtype;
 
+// ladybrown arm pid
+extern lemlib::PID ladybrownPID;
+
 // initializing initialize vision sensor for color
-void initialize_vision();
+void initVision();

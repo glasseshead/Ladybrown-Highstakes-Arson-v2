@@ -19,13 +19,13 @@ std::int8_t LADYBROWN_MOTOR_LEFT = 0;
 std::int8_t LADYBROWN_MOTOR_RIGHT = 0;
 
 std::int8_t VISION_SENSOR = 0;
+std::int8_t ROTATION_SENSOR = 0;
+std::int8_t IMU_SENSOR = 0;
 
 char MOGOCLAMP_PISTON = 'A';
 char HANG_PISTON = 'A';
 char DOINKER_PISTON = 'A';
 char CLIMB_PISTONS = 'A';
-
-std::int8_t IMU_SENSOR = 0;
 
 // TODO: Configure your controls to your preference.
 // Original Controls:
@@ -103,10 +103,13 @@ pros::vision_signature_s_t blueSignature =
 pros::vision_signature_s_t teamColorSignature =
     pros::Vision::signature_from_utility(REDSIG, REDu_min, REDu_max, REDu_mean, REDv_min, REDv_max, REDv_mean, REDrange, REDtype);
 
+// ladybrown rotation sensor mapping
+pros::Rotation ladybrownRotationSensor (LADYBROWN_ROTATION_SENSOR);
+
 // vision sensor mapping
 pros::Vision vision (VISION_SENSOR);
 
-void initialize_vision() {
+void initVision() {
     vision.set_signature(REDSIG, &redSignature);
     vision.set_signature(BLUESIG, &blueSignature);
 }
@@ -250,3 +253,17 @@ lemlib::Chassis chassis(drivetrain,
                         sensors 
                         // odom
 );
+
+// TODO: Tune your ladybrown PID
+// ladybrown pid
+lemlib::PID ladybrownPID(5,
+                         // proportional gain (kP)
+                         0.01,
+                         // integral gain (kI)
+                         20,
+                         // derivative gain (kD)
+                         5,
+                         // antiwindup
+                         false
+                         // sign flip reset boolean
+)

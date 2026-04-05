@@ -28,7 +28,17 @@ void initialize() {
 
 	pros::lcd::register_btn1_cb(on_center_button);
 
-	initialize_vision();
+	// initialize vision
+	initVision();
+
+	// reset ladybrown rotation sensor
+	ladybrownRotationSensor.reset();
+  	ladybrownRotationSensor.set_data_rate(5);
+
+	// reset ladybrown pid
+    ladybrownPID.reset();
+
+	// initialize tasks
 	initTasks();
 }
 
