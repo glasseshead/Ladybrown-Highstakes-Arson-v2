@@ -47,7 +47,7 @@ pros::controller_digital_e_t climbControl = pros::E_CONTROLLER_DIGITAL_LEFT;
 
 // TODO: Configure your colour signatures
 int32_t REDSIG = 1;
-int32_t BLUESIG = 1;
+int32_t BLUESIG = 2;
 
 int32_t REDu_min = 0;
 int32_t REDu_max = 0;
@@ -274,5 +274,6 @@ lemlib::PID ladybrownPID(5,
 );
 
 std::int32_t ladybrownPID_downTarget = 0;
-std::int32_t ladybrownPID_upTarget = 0;
+std::int32_t ladybrownPID_loadTarget = 0;
+std::int32_t ladybrownPID_scoreTarget = 0;
 std::int32_t ladybrownPID_target = 0;

@@ -134,7 +134,8 @@ extern float ladybrownPIDout;
 
 // ladybrown arm pid targets
 extern std::int32_t ladybrownPID_downTarget;
-extern std::int32_t ladybrownPID_upTarget;
+extern std::int32_t ladybrownPID_loadTarget;
+extern std::int32_t ladybrownPID_scoreTarget;
 extern std::int32_t ladybrownPID_target;
 
 // initializing initialize vision sensor for color
