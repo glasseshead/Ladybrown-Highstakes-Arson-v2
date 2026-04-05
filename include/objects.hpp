@@ -40,6 +40,9 @@ extern pros::adi::DigitalOut doinkerPiston;
 // climb pistons
 extern pros::adi::DigitalOut climbPistons;
 
+// color sort chain pistons
+extern pros::adi::DigitalOut colorSortPiston;
+
 // vision sensor
 extern pros::Vision vision;
 
@@ -82,6 +85,9 @@ extern char DOINKER_PISTON;
 // climb pistons port
 extern char CLIMB_PISTONS;
 
+// color sort chain piston port
+extern char COLORSORT_PISTON;
+
 // imu port
 extern std::int8_t IMU;
 
@@ -90,9 +96,6 @@ extern std::int8_t VISION_SENSOR;
 
 // ladybrown rotation sensor port
 extern std::int8_t LADYBROWN_ROTATION_SENSOR;
-
-// intake motor voltage (for color sort)
-extern std::int32_t INTAKE_VOLTAGE;
 
 // vision sensor color signatures
 extern pros::vision_signature_s_t redSignature;
@@ -122,6 +125,10 @@ extern int32_t BLUEtype;
 
 // ladybrown arm pid
 extern lemlib::PID ladybrownPID;
+
+// ladybrown arm pid targets
+extern std::int32_t ladybrownPID_downTarget;
+extern std::int32_t ladybrownPID_upTarget;
 
 // initializing initialize vision sensor for color
 void initVision();

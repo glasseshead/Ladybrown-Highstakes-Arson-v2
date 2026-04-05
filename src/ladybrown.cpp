@@ -53,19 +53,16 @@ void runLadybrown() {
                 ladybrown_l.move_voltage(0);
                 ladybrown_r.move_voltage(0);
 
-                // ladybrown.move_voltage(0);
             // ladybrown scoring
             case 1:
                 ladybrown_l.move_voltage(200);
                 ladybrown_r.move_voltage(200);
 
-                // ladybrown.move_voltage(200);
             // ladybrown unscoring
             case 2:
                 ladybrown_l.move_voltage(-200);
                 ladybrown_r.move_voltage(-200);
 
-                // ladybrown.move_voltage(-200);
         }
     }
 }

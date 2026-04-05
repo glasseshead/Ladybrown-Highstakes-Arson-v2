@@ -26,6 +26,7 @@ char MOGOCLAMP_PISTON = 'A';
 char HANG_PISTON = 'A';
 char DOINKER_PISTON = 'A';
 char CLIMB_PISTONS = 'A';
+char COLORSORT_PISTON = 'A';
 
 // TODO: Configure your controls to your preference.
 // Original Controls:
@@ -70,9 +71,8 @@ int32_t BLUEtype = 0;
 pros::MotorGroup left_mg({LEFT_MG_0, LEFT_MG_1, LEFT_MG_2}, pros::v5::MotorGears::blue);
 pros::MotorGroup right_mg({RIGHT_MG_0, RIGHT_MG_1, RIGHT_MG_2}, pros::v5::MotorGears::blue);
 
-// intake mapping & voltage
+// intake mapping
 pros::Motor intake(INTAKE_MOTOR, pros::v5::MotorGears::blue);
-std::int32_t INTAKE_VOLTAGE = 12000;
 
 // ladybrown mapping
 pros::Motor ladybrown_l(LADYBROWN_MOTOR_LEFT, pros::v5::MotorGears::green);
@@ -89,6 +89,9 @@ pros::adi::DigitalOut doinkerPiston(DOINKER_PISTON);
 
 // climb pistons mapping
 pros::adi::DigitalOut climbPistons(CLIMB_PISTONS);
+
+// color sort chain piston mapping
+pros::adi::DigitalOut colorSortPiston(COLORSORT_PISTON);
 
 // imu mapping
 pros::Imu imu(IMU_SENSOR);
@@ -254,7 +257,7 @@ lemlib::Chassis chassis(drivetrain,
                         // odom
 );
 
-// TODO: Tune your ladybrown PID
+// TODO: Tune your ladybrown PID and target positions
 // ladybrown pid
 lemlib::PID ladybrownPID(5,
                          // proportional gain (kP)
@@ -267,3 +270,6 @@ lemlib::PID ladybrownPID(5,
                          false
                          // sign flip reset boolean
 )
+
+std::int32_t ladybrownPID_downTarget = 0;
+std::int32_t ladybrownPID_upTarget = 0;

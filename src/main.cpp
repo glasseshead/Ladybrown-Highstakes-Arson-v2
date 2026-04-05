@@ -7,7 +7,7 @@
 #include "mogoclamp.hpp"
 #include "climb.hpp"
 #include "color.hpp"
-#include "score.hpp"
+
 
 void on_center_button() {
 	static bool pressed = false;
@@ -76,7 +76,6 @@ void opcontrol() {
         chassis.arcade(throttle, rudder);
 
 		updateIntake();
-		// updateScore();
 		updateLadybrown();
 		updateClimb();
 		updateMogoClamp();

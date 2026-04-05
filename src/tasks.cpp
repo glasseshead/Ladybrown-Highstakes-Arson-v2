@@ -2,8 +2,8 @@
 #include "intake.hpp"
 #include "mogoclamp.hpp"
 #include "ladybrown.hpp"
-// #include "score.hpp"
 #include "climb.hpp"
+#include "color.hpp"
 #include "tasks.hpp"
 
 void initTasks() {
