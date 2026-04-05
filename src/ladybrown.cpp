@@ -37,15 +37,20 @@ void runLadybrown() {
         // based on our ladybrown state, we toggle it up or down
         switch (ladybrownState) {
             // ladybrown down 
-            case 0:
-                float ladybrownPID_target = ladybrownPID_downTarget
-
+            case 0: {
+                std::int32_t ladybrownPID_target = ladybrownPID_downTarget;
+                break;
+            }
             // ladybrown scoring
-            case 1:
-                float ladybrownPID_target = ladybrownPID_upTarget
+            case 1: {
+                std::int32_t ladybrownPID_target = ladybrownPID_upTarget;
+                break;
+            }
         }
-        float ladybrownPIDout = 
-                      ladybrownPID.update (ladybrownPID_target - ladybrownRotationSensor.get_position)
+        float ladybrownPIDout = ladybrownPID.update(ladybrownPID_target - ladybrownRotationSensor.get_position());
         ladybrown.move_voltage(ladybrownPIDout);
+
+		// standard wait 10 ms
+		pros::delay(10);  
     }
 }

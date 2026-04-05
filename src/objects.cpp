@@ -19,7 +19,7 @@ std::int8_t LADYBROWN_MOTOR_LEFT = 0;
 std::int8_t LADYBROWN_MOTOR_RIGHT = 0;
 
 std::int8_t VISION_SENSOR = 0;
-std::int8_t ROTATION_SENSOR = 0;
+std::int8_t LADYBROWN_ROTATION_SENSOR = 0;
 std::int8_t IMU_SENSOR = 0;
 
 char MOGOCLAMP_PISTON = 'A';
@@ -74,12 +74,8 @@ pros::MotorGroup right_mg({RIGHT_MG_0, RIGHT_MG_1, RIGHT_MG_2}, pros::v5::MotorG
 // intake mapping
 pros::Motor intake(INTAKE_MOTOR, pros::v5::MotorGears::blue);
 
-// ladybrown mapping
-pros::Motor ladybrown_l(LADYBROWN_MOTOR_LEFT, pros::v5::MotorGears::green);
-pros::Motor ladybrown_r(LADYBROWN_MOTOR_RIGHT, pros::v5::MotorGears::green);
-
 // ladybrown motor group mapping
-pros::Motor_Group ladybrown ({ladybrown_l, -ladybrown_r});
+pros::MotorGroup ladybrown({LADYBROWN_MOTOR_LEFT, static_cast<std::int8_t>(-LADYBROWN_MOTOR_RIGHT)}, pros::v5::MotorGears::green);
 
 // mogo clamp piston mapping
 pros::adi::DigitalOut mogoClampPiston(MOGOCLAMP_PISTON);
@@ -275,7 +271,8 @@ lemlib::PID ladybrownPID(5,
                          // antiwindup
                          false
                          // sign flip reset boolean
-)
+);
 
 std::int32_t ladybrownPID_downTarget = 0;
 std::int32_t ladybrownPID_upTarget = 0;
+std::int32_t ladybrownPID_target = 0;
