@@ -20,6 +20,7 @@ std::int8_t LADYBROWN_MOTOR_RIGHT = 0;
 
 std::int8_t VISION_SENSOR = 0;
 std::int8_t LADYBROWN_ROTATION_SENSOR = 0;
+std::int8_t COLORSORT_DISTANCE_SENSOR = 0;
 std::int8_t IMU_SENSOR = 0;
 
 char MOGOCLAMP_PISTON = 'A';
@@ -73,6 +74,10 @@ int32_t BLUEv_mean = 0;
 int32_t BLUErange = 0;
 int32_t BLUEtype = 0;
 
+// TODO: Configure your max and min values for your distance sensor from camera to torus in mm
+int32_t COLORSORT_DISTANCE_MIN = 0;
+int32_t COLORSORT_DISTANCE_MAX = 0;
+
 // motor groups (3WD)
 pros::MotorGroup left_mg({LEFT_MG_0, LEFT_MG_1, LEFT_MG_2}, pros::v5::MotorGears::blue);
 pros::MotorGroup right_mg({RIGHT_MG_0, RIGHT_MG_1, RIGHT_MG_2}, pros::v5::MotorGears::blue);
@@ -119,6 +124,9 @@ pros::Rotation ladybrownRotationSensor (LADYBROWN_ROTATION_SENSOR);
 
 // vision sensor mapping
 pros::Vision vision (VISION_SENSOR);
+
+// color sort chain distance sensor mapping
+pros::Distance colorDistance (COLORSORT_DISTANCE_SENSOR);
 
 void initVision() {
     vision.set_signature(REDSIG, &redSignature);

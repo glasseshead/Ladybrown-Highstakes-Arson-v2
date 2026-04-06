@@ -1,6 +1,7 @@
 #pragma once
 #include "lemlib/api.hpp" // IWYU pragma: keep
 #include "pros/adi.hpp"
+#include "pros/distance.hpp"
 #include "pros/vision.hpp"
 
 // intake & storage motor
@@ -51,6 +52,9 @@ extern pros::adi::DigitalOut goalRushPiston;
 
 // vision sensor
 extern pros::Vision vision;
+
+// color sort chain distance sensor
+extern pros::Distance colorDistance;
 
 // ladybrown rotation sensor
 extern pros::Rotation ladybrownRotationSensor;
@@ -105,6 +109,13 @@ extern std::int8_t IMU;
 
 // vision sensor port
 extern std::int8_t VISION_SENSOR;
+
+// color sort chain distance sensor port
+extern std::int8_t COLORSORT_DISTANCE_SENSOR;
+
+// color sort chain distance sensor max and min distance from camera
+extern int32_t COLORSORT_DISTANCE_MIN;
+extern int32_t COLORSORT_DISTANCE_MAX;
 
 // ladybrown rotation sensor port
 extern std::int8_t LADYBROWN_ROTATION_SENSOR;
