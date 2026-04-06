@@ -4,6 +4,8 @@
 #include "ladybrown.hpp"
 #include "climb.hpp"
 #include "color.hpp"
+#include "goalrush.hpp"
+#include "doinker.hpp"
 #include "tasks.hpp"
 
 void initTasks() {
@@ -11,5 +13,7 @@ void initTasks() {
     pros::Task mogoClampTask(runMogoClamp, "mogo clamp task");
     pros::Task ladybrownTask(runLadybrown, "ladybrown task");
     pros::Task climbTask(runClimb, "climb task");
+    pros::Task goalRushTask(runGoalRush, "goal rush task");
+    pros::Task doinkerTask(runDoinker, "doinker task");
     pros::Task checkColorTask(checkColor, "check color task");
 }
