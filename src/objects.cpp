@@ -26,6 +26,7 @@ char MOGOCLAMP_PISTON = 'A';
 char HANG_PISTON = 'A';
 char DOINKER_PISTON = 'A';
 char CLIMB_PISTONS = 'A';
+char GOALRUSH_PISTON = 'A';
 char COLORSORT_PISTON = 'A';
 
 // TODO: Configure your controls to your preference.
@@ -36,6 +37,8 @@ char COLORSORT_PISTON = 'A';
 // MogoClampControl = pros::E_CONTROLLER_DIGITAL_R2;
 // doinkerControl = pros::E_CONTROLLER_DIGITAL_DOWN;
 // climbControl = pros::E_CONTROLLER_DIGITAL_LEFT;
+// teamColorControl_Red = pros::E_CONTROLLER_DIGITAL_A;
+// teamColorControl_Blue = pros::E_CONTROLLER_DIGITAL_B;
 
 // controls mapping
 pros::controller_digital_e_t intakeControl = pros::E_CONTROLLER_DIGITAL_L1;
@@ -44,6 +47,9 @@ pros::controller_digital_e_t ladybrownControl = pros::E_CONTROLLER_DIGITAL_R1;
 pros::controller_digital_e_t MogoClampControl = pros::E_CONTROLLER_DIGITAL_R2;
 pros::controller_digital_e_t doinkerControl = pros::E_CONTROLLER_DIGITAL_DOWN;
 pros::controller_digital_e_t climbControl = pros::E_CONTROLLER_DIGITAL_LEFT;
+pros::controller_digital_e_t goalRushControl = pros::E_CONTROLLER_DIGITAL_RIGHT;
+pros::controller_digital_e_t teamColorControl_Red = pros::E_CONTROLLER_DIGITAL_A;
+pros::controller_digital_e_t teamColorControl_Blue = pros::E_CONTROLLER_DIGITAL_B;
 
 // TODO: Configure your colour signatures
 int32_t REDSIG = 1;
@@ -91,6 +97,9 @@ pros::adi::DigitalOut climbPistons(CLIMB_PISTONS);
 
 // color sort chain piston mapping
 pros::adi::DigitalOut colorSortPiston(COLORSORT_PISTON);
+
+// goal rush piston mapping
+pros::adi::DigitalOut goalRushPiston(GOALRUSH_PISTON);
 
 // imu mapping
 pros::Imu imu(IMU_SENSOR);
@@ -273,7 +282,12 @@ lemlib::PID ladybrownPID(5,
                          // sign flip reset boolean
 );
 
+// based on the states that you have, you can configure these positions.
+// if it doesn't do anything, leave it as 0 and in ladybrown.cpp change the switch/if statements accordingly.
 std::int32_t ladybrownPID_downTarget = 0;
 std::int32_t ladybrownPID_loadTarget = 0;
+std::int32_t ladybrownPID_alignTarget = 0;
 std::int32_t ladybrownPID_scoreTarget = 0;
+
+// leave this as 0, this will be changed during the match
 std::int32_t ladybrownPID_target = 0;

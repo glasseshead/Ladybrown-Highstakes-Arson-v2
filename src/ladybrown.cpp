@@ -10,7 +10,8 @@ int ladybrownState = 0;
 void updateLadybrown() {
     // state = 0: ladybrown down
     // state = 1: ladybrown load
-    // state = 2: ladybrown score
+    // state = 2: ladybrown align
+    // state = 3: ladybrown score
 
     // if ladybrown control is pressed
     if (controller.get_digital(ladybrownControl)) {
@@ -19,12 +20,16 @@ void updateLadybrown() {
             if(ladybrownState == 0) {
                 ladybrownState = 1;
             }
-            // if it is load turn it to score
+            // if it is load turn it to align
             if(ladybrownState == 1) {
                 ladybrownState = 2;
             }
-            // if it is score turn it to down
+            // if it is align turn it to score
             if(ladybrownState == 2) {
+                ladybrownState = 3;
+            }
+            // if it is score turn it to down
+            if(ladybrownState == 3) {
                 ladybrownState = 0;
             }
         }
@@ -51,8 +56,13 @@ void runLadybrown() {
                 std::int32_t ladybrownPID_target = ladybrownPID_loadTarget;
                 break;
             }
-            // ladybrown scoring
+            // ladybrown aligning
             case 2: {
+                std::int32_t ladybrownPID_target = ladybrownPID_alignTarget;
+                break;
+            }
+            // ladybrown scoring
+            case 3: {
                 std::int32_t ladybrownPID_target = ladybrownPID_scoreTarget;
                 break;
             }

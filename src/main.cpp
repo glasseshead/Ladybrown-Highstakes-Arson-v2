@@ -54,10 +54,16 @@ void competition_initialize() {
     // if the signature is red, set the team color signature to red
     if (detected.signature == redSignature.id) {
         teamColorSignature = redSignature;
+
+		// from color.cpp, 0 is red
+		teamColorState = 0;
     }
     // if the signature is blue, set the team color signature to red
     else if (detected.signature == blueSignature.id) {
         teamColorSignature = blueSignature;
+
+		// from color.cpp, 1 is blue
+		teamColorState = 1;
     }
 }
 
@@ -79,6 +85,7 @@ void opcontrol() {
 		updateLadybrown();
 		updateClimb();
 		updateMogoClamp();
+		updateTeamColor();
 
 		// standard wait 10 ms
 		pros::delay(10);  

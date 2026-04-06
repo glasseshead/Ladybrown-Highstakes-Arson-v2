@@ -46,6 +46,9 @@ extern pros::adi::DigitalOut climbPistons;
 // color sort chain pistons
 extern pros::adi::DigitalOut colorSortPiston;
 
+// goal rush pistons
+extern pros::adi::DigitalOut goalRushPiston;
+
 // vision sensor
 extern pros::Vision vision;
 
@@ -59,6 +62,9 @@ extern pros::controller_digital_e_t ladybrownControl;
 extern pros::controller_digital_e_t MogoClampControl;
 extern pros::controller_digital_e_t doinkerControl;
 extern pros::controller_digital_e_t climbControl;
+extern pros::controller_digital_e_t goalRushControl;
+extern pros::controller_digital_e_t teamColorControl_Red;
+extern pros::controller_digital_e_t teamColorControl_Blue;
 
 // drivetrain motor ports
 extern std::int8_t LEFT_MG_0;
@@ -87,6 +93,9 @@ extern char DOINKER_PISTON;
 
 // climb pistons port
 extern char CLIMB_PISTONS;
+
+// goal rush pistons port
+extern char GOALRUSH_PISTONS;
 
 // color sort chain piston port
 extern char COLORSORT_PISTON;
@@ -135,6 +144,7 @@ extern float ladybrownPIDout;
 // ladybrown arm pid targets
 extern std::int32_t ladybrownPID_downTarget;
 extern std::int32_t ladybrownPID_loadTarget;
+extern std::int32_t ladybrownPID_alignTarget;
 extern std::int32_t ladybrownPID_scoreTarget;
 extern std::int32_t ladybrownPID_target;
 
