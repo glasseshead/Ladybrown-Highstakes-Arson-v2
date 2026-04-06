@@ -59,7 +59,7 @@ void checkColor() {
 
     // if the signature is your team color, retract piston to allow it to flip down
     if (detected.signature == teamColorSignature.id) {
-        while (colorDistance.get() > COLORSORT_DISTANCE_MAX || colorDistance.get() < COLORSORT_DISTANCE_MIN) {
+        while (COLORSORT_DISTANCE_MIN < colorDistance.get() < COLORSORT_DISTANCE_MAX) {
             colorSortPiston.set_value(false);
         }
     }
