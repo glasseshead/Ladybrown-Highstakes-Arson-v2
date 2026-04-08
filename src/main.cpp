@@ -65,6 +65,10 @@ void competition_initialize() {
 		// from color.cpp, 1 is blue
 		teamColorState = 1;
     }
+
+	// TODO: If you prefer setting the team color manually, use the following code:
+	// teamColorState = 0; // Red Team
+	// teamColorState = 1; // Blue Team
 }
 
 void autonomous() {
