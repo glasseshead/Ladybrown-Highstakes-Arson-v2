@@ -27,7 +27,13 @@ void initialize() {
 	pros::lcd::set_text(1, "arson, yaaay!");
 
 	pros::lcd::register_btn1_cb(on_center_button);
+}
 
+void disabled() {
+
+}
+
+void competition_initialize() {
 	// initialize vision
 	initVision();
 
@@ -40,13 +46,7 @@ void initialize() {
 
 	// initialize tasks
 	initTasks();
-}
 
-void disabled() {
-
-}
-
-void competition_initialize() {
     // set detected to the largest "blob" of color detected
 	pros::vision_object_s_t detected = vision.get_by_size(0);
 
