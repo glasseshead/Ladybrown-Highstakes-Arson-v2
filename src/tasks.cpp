@@ -15,5 +15,6 @@ void initTasks() {
     pros::Task climbTask(runClimb, "climb task");
     pros::Task goalRushTask(runGoalRush, "goal rush task");
     pros::Task doinkerTask(runDoinker, "doinker task");
-    pros::Task checkColorTask(checkColor, "check color task");
+    pros::Task checkColorTask(checkColor, "check color/piston task");
+    pros::Task runColorTask(runColor, "change team color task");
 }
