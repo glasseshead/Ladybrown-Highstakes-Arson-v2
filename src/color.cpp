@@ -58,13 +58,43 @@ void checkColor() {
     pros::vision_object_s_t detected = vision.get_by_size(0);
 
     // if the signature is your team color, retract piston to allow it to flip down
+
+    // TODO: Please pick one configuration for the bot. By default, this is colorSortPiston.
     if (detected.signature == teamColorSignature.id) {
         while (COLORSORT_DISTANCE_MIN < colorDistance.get() < COLORSORT_DISTANCE_MAX) {
+            // outtake has nothing for this, it runs as normal
+            
+            // ladybrown
+            
+            /*
+            std::int32_t ladybrownPID_target = ladybrownPID_downTarget;
+            float ladybrownPIDout = ladybrownPID.update(ladybrownPID_target - ladybrownRotationSensor.get_position());
+            ladybrown.move_voltage(ladybrownPIDout);
+            */
+
+            // color sort piston
             colorSortPiston.set_value(false);
         }
     }
     // if the signature is not your team color, extend piston to throw it out
     else {
+        // outtake
+        
+        /*
+        intake.move_relative(360, 100);
+        while (abs(intake.get_position()-360) > 10) {
+            pros::delay(10);
+        }
+        */
+            
+        // ladybrown
+        
+        std::int32_t ladybrownPID_target = ladybrownPID_colorTarget;
+        float ladybrownPIDout = ladybrownPID.update(ladybrownPID_target - ladybrownRotationSensor.get_position());
+        ladybrown.move_voltage(ladybrownPIDout);
+        
+        
+        // color sort piston
         colorSortPiston.set_value(true);
     }
 }
